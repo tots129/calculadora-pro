@@ -9,7 +9,6 @@
     <meta name="google-adsense-account" content="ca-pub-3053200125100032">
     
     <style>
-        /* ESTILO ESCURO INSPIRADO NO STREAMLIT */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0;
@@ -18,8 +17,8 @@
             justify-content: center; 
             align-items: center;
             min-height: 100vh;
-            background: #0e1117; /* Fundo escuro do Streamlit */
-            color: #fafafa; /* Texto claro */
+            background: #0e1117; 
+            color: #fafafa; 
         }
         
         .container {
@@ -38,17 +37,11 @@
             font-size: 2em;
             margin: 10px 0 20px 0;
             font-weight: bold;
-        }
-        
-        .main-title span.python-highlight {
-            background-color: #007bff; /* Fundo azul do destaque */
-            color: #ffffff;
-            padding: 2px 8px;
-            border-radius: 4px;
+            color: #fafafa; /* Cor igual a todas as outras letras */
         }
 
         .card { 
-            background: #1a1e26; /* Fundo do card ligeiramente mais claro */
+            background: #1a1e26; 
             padding: 30px; 
             border-radius: 8px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -59,7 +52,6 @@
             display: block;
             margin-bottom: 8px;
             font-size: 0.9em;
-            color: #fafafa;
         }
         
         input, select { 
@@ -67,23 +59,15 @@
             margin-bottom: 20px; 
             padding: 12px; 
             border-radius: 5px; 
-            border: 1px solid #363a40; /* Borda escura */
-            background-color: #0e1117; /* Fundo escuro dos inputs */
-            color: #fafafa; /* Texto claro nos inputs */
-            box-sizing: border-box; /* Garante que o padding não quebre o layout */
+            border: 1px solid #363a40; 
+            background-color: #0e1117; 
+            color: #fafafa; 
+            box-sizing: border-box;
             font-size: 1em;
         }
         
-        select {
-            appearance: none; /* Remove seta padrão */
-            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23fafafa%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.3c0%204.9%201.8%209.2%205.4%2012.8l128%20128c3.6%203.6%208%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095a17.6%2017.6%200%200%200%205.4-12.8c0-5-1.8-9.3-5.4-12.8z%22%2F%3E%3C%2Fsvg%22');
-            background-repeat: no-repeat;
-            background-position: right 12px top 50%;
-            background-size: 12px auto;
-        }
-
         button { 
-            background: #007bff; /* Botão azul */
+            background: #007bff; 
             color: white; 
             border: none; 
             padding: 12px 20px;
@@ -91,16 +75,10 @@
             cursor: pointer; 
             font-size: 1.1em;
             width: 100%;
-            transition: background 0.2s;
-        }
-        
-        button:hover {
-            background: #0056b3;
         }
         
         #resultado { 
             font-weight: bold; 
-            color: #fafafa; /* Texto claro para o resultado */
             text-align: center; 
             font-size: 1.3em; 
             margin-top: 25px;
@@ -117,19 +95,16 @@
 </head>
 <body>
     <div class="container">
-        <!-- SEÇÃO DE CRÉDITOS E TEXTOS SUPERIORES (IGUAL À IMAGEM) -->
         <div class="credits">
             <p>Créditos ao tots criador e publicador e tudo da calculadora 🧮</p>
             <p>Calculadora em Python super eficaz e rápida.</p>
             <p>Esta é uma ferramenta gratuita desenvolvida em Python para ajudar em cálculos rápidos.</p>
         </div>
 
-        <!-- TÍTULO PRINCIPAL COM DESTAQUE EM AZUL -->
         <div class="main-title">
-            --- Calculadora <span class="python-highlight">Python</span> --- 🧮
+            --- Calculadora Python --- 🧮
         </div>
 
-        <!-- CARD PRINCIPAL COM A INTERFACE DE CÁLCULO -->
         <div class="card">
             <label for="operacao">Escolha a operação:</label>
             <select id="operacao">
@@ -140,23 +115,21 @@
             </select>
 
             <label for="num1">Digite o primeiro número:</label>
-            <input type="number" id="num1" placeholder="Ex: 10" step="any">
+            <input type="number" id="num1" placeholder="0,00" step="any">
 
             <label for="num2">Digite o segundo número:</label>
-            <input type="number" id="num2" placeholder="Ex: 5" step="any">
+            <input type="number" id="num2" placeholder="0,00" step="any">
 
             <button onclick="calcular()">Calcular</button>
             <div id="resultado"></div>
         </div>
 
-        <!-- RODAPÉ (IGUAL À IMAGEM) -->
         <div class="footer">
             © 2026 - Desenvolvido por Tots | Todos os direitos reservados
         </div>
     </div>
 
     <script>
-        // LÓGICA DE CÁLCULO (MANTIDA)
         function calcular() {
             const n1 = parseFloat(document.getElementById('num1').value);
             const n2 = parseFloat(document.getElementById('num2').value);
@@ -164,25 +137,15 @@
             let res = "";
 
             if (isNaN(n1) || isNaN(n2)) {
-                res = "Por favor, digite dois números válidos.";
+                res = "Por favor, digite números válidos.";
             } else {
                 if (op === 'soma') res = n1 + n2;
                 else if (op === 'sub') res = n1 - n2;
                 else if (op === 'mult') res = n1 * n2;
-                else if (op === 'div') {
-                    if (n2 === 0) {
-                        res = "Erro: Divisão por zero.";
-                    } else {
-                        res = n1 / n2;
-                    }
-                }
+                else if (op === 'div') res = n2 !== 0 ? n1 / n2 : "Erro: Divisão por zero.";
             }
 
-            // Garante que o resultado seja formatado de forma limpa (ex: sem muitos decimais)
-            if (typeof res === 'number' && !Number.isInteger(res)) {
-                res = res.toFixed(2);
-            }
-
+            if (typeof res === 'number') res = Number.isInteger(res) ? res : res.toFixed(2);
             document.getElementById('resultado').innerText = "Resultado: " + res;
         }
     </script>
